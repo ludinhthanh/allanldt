@@ -1,0 +1,58 @@
+package bubblesort;
+import java.util.*;
+public class BubbleSort {
+public int[] array;
+public BubbleSort(){}
+public BubbleSort(int[] array){
+    this.array= array;
+}
+   @Override
+   public String toString(){
+       String s ="";
+       for(int a:array){
+           s=+a+"";
+                   }
+       return s;
+   }
+    public int[] getArray(){
+        return array;
+    }
+    public void setArray(int [] array){
+        this.array=array;
+    }
+    public int keyBoard(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter number of array:");
+        int n=input.nextInt();
+        return n;
+    }
+    public void randomArray(int n) {
+        Random rd=new Random();
+        array = new int[n];
+        for(int i=0; i< array.length ; i++){
+            array[i]=rd.nextInt(10);
+        }
+    }
+    public int[] sortBubble(int[] array){
+        int  n = array.length;
+        int temp = array[0];
+        for(int i =0 ; i < n -1 ; i++){
+            for(int j = i ; j< n; j++){
+                if(array[i] > array[j]){
+                    temp = array[j];
+                    array[j]=array[i];
+                    array[i]=temp;
+                }
+            }
+        }
+    return array;
+    }
+}    
+        public static void main(String[] args){
+            BubbleSort a = new BubbleSort();
+            a.randomArray(a.keyBoard());
+            System.out.println("Unsorted array: " + Arrays.toString(a.array));
+            a.sortBubble(a.array);
+            System.out.println("Sorted array: "+ Arrays.toString(a.array));
+    
+}
