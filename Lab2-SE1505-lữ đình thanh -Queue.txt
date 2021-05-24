@@ -1,0 +1,87 @@
+package queue;
+class Queue {
+    char Q[];
+    int f,r;
+    int MAX =100;
+    Queue(int size)
+    {
+        MAX = size;
+        Q = new char[MAX];
+        f = r = 0;
+    }
+    Queue()
+    {
+        Q = new char[MAX];
+        f = r = 0;
+    }
+    boolean isEmpty()
+    {
+        return (f==r);
+    }
+    int Numcount()
+    {
+        if(f == r)
+            return 0;
+        else
+                return((MAX -f)+r) % MAX;
+    }
+    void enqueue(char x)
+    {
+        if(NumOfEle() == MAX -1)
+            return;
+        else
+        {
+            Q[r] = x;
+            r = (r+1) % MAX;
+        }
+    }
+    char dequeue()
+    {
+        char x = Q[f];
+        f=(f+1)%MAX;
+        return x ;
+    }
+    int getFirst()
+    {
+        return Q[f];
+    }
+    int NumOfEle()
+    {
+        return (MAX + r - f)%MAX;
+        
+    }
+    void InQueue()
+    {
+        int n = Numcount();
+        int i =f;
+        while(n>0)
+        {
+            System.out.print(Q[i]);
+            i = (i+1) % MAX;
+            n = n-1;
+        }
+    }
+        
+}
+
+package queue;
+public class Main {
+    public static void main(String[] args) {
+        int size = 40;
+        Queue Q = new Queue(size);
+        Q.equals('A'); Q.enqueue('B'); Q.equals('C');
+        System.out.println("\nSo PT hien tai: %d\n" + Q.Numcount());
+        Q.InQueue();
+        System.out.println("\nfront = %d, rear = %d\n" + Q.f + Q.r);
+        System.out.println("\nDequeue: %c" + Q.dequeue());
+        System.out.print("\nSo PT hien tai: %d\n" + Q.Numcount());
+        Q.InQueue();
+        System.out.print("\nfront = %d, rear = %d\n" + Q.f + Q.r);
+      
+    }
+    
+}
+
+
+
+
