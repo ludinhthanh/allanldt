@@ -1,0 +1,7 @@
+   regarding  the edit's s            olution: the   line-end match    should be removed                if    
+
+   you wish to reMove the  blank line itself.
+Otherwise, the   regex  will   only remove any    white-space                    characters
+
+ within  the   line, While   still leaving
+     the line      there   .
